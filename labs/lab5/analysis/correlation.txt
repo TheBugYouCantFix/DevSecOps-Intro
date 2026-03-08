@@ -1,0 +1,6 @@
+=== SAST/DAST Correlation Report ===
+SAST (Semgrep): 25 findings
+DAST (ZAP): Medium=7 High=1
+DAST (Nuclei): 0
+DAST (Nikto): 0
+DAST (SQLmap): 0

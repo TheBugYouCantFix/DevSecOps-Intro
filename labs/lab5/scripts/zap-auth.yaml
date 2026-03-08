@@ -1,0 +1,51 @@
+# ZAP Automation - Juice Shop Authenticated Scan
+env:
+  contexts:
+  - name: "Juice Shop"
+    urls:
+    - "http://localhost:3000"
+    includePaths:
+    - "http://localhost:3000.*"
+    authentication:
+      method: "json"
+      parameters:
+        loginUrl: "http://localhost:3000/rest/user/login"
+        loginRequestData: '{"email":"{%username%}","password":"{%password%}"}'
+      verification:
+        method: "response"
+        loggedInRegex: '"token":"[^"]+"'
+    sessionManagement:
+      method: "cookie"
+      parameters:
+        sessionTokenRegex: '"token":"([^"]+)"'
+    users:
+    - name: "admin@juice-sh.op"
+      credentials:
+        username: "admin@juice-sh.op"
+        password: "admin123"
+
+jobs:
+- type: spider
+  parameters:
+    context: "Juice Shop"
+    user: "admin@juice-sh.op"
+- type: spiderAjax
+  parameters:
+    context: "Juice Shop"
+    user: "admin@juice-sh.op"
+    browserId: "firefox-headless"
+    maxDuration: 5
+- type: passiveScan-config
+  parameters:
+    maxAlertsPerRule: 10
+    scanOnlyInScope: true
+- type: activeScan
+  parameters:
+    context: "Juice Shop"
+    user: "admin@juice-sh.op"
+- type: report
+  parameters:
+    template: "traditional-html"
+    reportDir: "/zap/wrk"
+    reportFile: "report-auth.html"
+    reportTitle: "Juice Shop Authenticated Scan"
