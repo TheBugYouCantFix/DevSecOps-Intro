@@ -1,0 +1,4 @@
+=== Comprehensive Tool Comparison ===
+Terraform: tfsec 53 | Checkov (n/a) | Terrascan (n/a)
+Pulumi (KICS): 6 findings
+Ansible (KICS): 10 findings

@@ -1,0 +1,4 @@
+=== Terraform Security Analysis ===
+tfsec findings: 53
+Checkov findings: (not run or empty in this environment)
+Terrascan findings: (scan completed; violated_policies in default set may vary)

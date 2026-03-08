@@ -1,0 +1,7 @@
+=== Pulumi Security Analysis (KICS) ===
+KICS Pulumi findings: 6
+  CRITICAL: 1
+  HIGH: 2
+  MEDIUM: 1
+  LOW: 0
+  INFO: 2
