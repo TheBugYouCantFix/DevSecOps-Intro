@@ -1,0 +1,1 @@
+Docker Scout scan could not be executed: authentication required. docker login failed with provided credentials (token appears to be GitHub PAT, not Docker Hub PAT).

@@ -1,0 +1,27 @@
+=== Functionality Test ===
+Default: HTTP 200
+Hardened: HTTP 200
+Production: HTTP 200
+
+=== Resource Usage ===
+NAME               CPU %     MEM USAGE / LIMIT     MEM %
+juice-default      1.62%     99.16MiB / 15.26GiB   0.63%
+juice-hardened     0.48%     92.79MiB / 512MiB     18.12%
+juice-production   0.48%     95.53MiB / 512MiB     18.66%
+
+=== Security Configurations ===
+
+
+Container: juice-default
+Container: juice-default
+CapDrop: <no value> SecurityOpt: <no value> Memory: 0 MemorySwap: 0 CPUQuota: 0 CPUPeriod: 0 PIDs: <no value> Restart: no
+
+
+Container: juice-hardened
+Container: juice-hardened
+CapDrop: [ALL] SecurityOpt: [no-new-privileges] Memory: 536870912 MemorySwap: 1073741824 CPUQuota: 0 CPUPeriod: 0 PIDs: <no value> Restart: no
+
+
+Container: juice-production
+Container: juice-production
+CapDrop: [ALL] SecurityOpt: [no-new-privileges] Memory: 536870912 MemorySwap: 536870912 CPUQuota: 0 CPUPeriod: 0 PIDs: 100 Restart: on-failure
